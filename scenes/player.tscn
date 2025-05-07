@@ -1,8 +1,10 @@
-[gd_scene load_steps=53 format=3 uid="uid://bsbn8tkuxiu8b"]
+[gd_scene load_steps=54 format=3 uid="uid://bsbn8tkuxiu8b"]
 
 [ext_resource type="Texture2D" uid="uid://byciiheiuiuix" path="res://assets/characters/test/test_idle.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cacqmaocfgpb6" path="res://scripts/player.gd" id="1_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://vml30pesyx4r" path="res://assets/characters/test/test_walk.png" id="3_dqkch"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2els"]
 atlas = ExtResource("1_3vyb7")
@@ -387,8 +389,14 @@ animations = [{
 script = ExtResource("1_qhqgy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, 0)
 sprite_frames = SubResource("SpriteFrames_ujl30")
 animation = &"walk_front"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
